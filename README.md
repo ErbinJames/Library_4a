@@ -370,7 +370,10 @@ The Library Management System offers a secure, efficient solution for managing b
   "token": " place your JwtToken Here",
   "authorid": "4",
   "name": "Author Name"
-}
+    }
+   ]
+  }
+  
   ```
 
 - **Expected Response:**
