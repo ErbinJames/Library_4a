@@ -315,7 +315,7 @@ The Library Management System offers a secure, efficient solution for managing b
 
   ```json
   {
-    "Token":place jwtToken Here",
+    "Token":"place jwtToken Here",
     "name": "Author Name"
   }
   ```
@@ -331,9 +331,9 @@ The Library Management System offers a secure, efficient solution for managing b
     }
     ```
 
-  - **Failure:** If the token is invalid, expired, already used, or if the name is empty or the author already exists, an appropriate error message will be returned.
+  - **Failure:** An suitable error message will be returned if the token is invalid, expired, already used, the name is empty, or the author is already known.
 
-**b. Display Author** - Displays a list of authors from the database.
+**b. Display Author** - shows the database's list of authors.
 
 - **Endpoint:** `/author/display`
 - **Method:** `GET`
@@ -348,16 +348,17 @@ The Library Management System offers a secure, efficient solution for managing b
       "status": "success",
       "data": [
         {
-          "authorid": 1,
-          "name": "Author Name"
+          "authorid": 4,
+          "name": "Author Name",
+          "token": "generated token"
         }
       ]
     }
     ```
 
-  - **Failure:** If the token has already been used, is invalid, or has expired, an appropriate error message will be returned.
+  - **Failure:** A suitable error message will be returned if the token has expired, has been used, or is invalid.
 
-**c. Update Author** - Updates an author's information in the database.
+**c. Update Author** -updates the database with an author's information.
 
 - **Endpoint:** `/author/update`
 - **Method:** `PUT`
@@ -366,9 +367,10 @@ The Library Management System offers a secure, efficient solution for managing b
 
   ```json
   {
-    "authorid": 1,
-    "name": "Updated Author Name"
-  }
+  "token": " place your JwtToken Here",
+  "authorid": "4",
+  "name": "Author Name"
+}
   ```
 
 - **Expected Response:**
@@ -377,12 +379,13 @@ The Library Management System offers a secure, efficient solution for managing b
 
     ```json
     {
+      "token": "Generated token",
       "status": "success",
-      "data": null
+      "data": null 
     }
     ```
 
-  - **Failure:** If the token has already been used, is invalid, expired, or if the author ID is missing or not found, or if there are no fields to update, an appropriate error message will be returned.
+  - **Failure:** An suitable error message will be returned if the token has already been used, is invalid or expired, the author ID is not present or cannot be located, or there are no fields to change.
 
 **d. Delete Author** - Deletes an author from the database.
 
