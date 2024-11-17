@@ -352,8 +352,6 @@ The Library Management System offers a secure, efficient solution for managing b
           "name": "Author Name",
           "token": "generated token"
         }
-      ]
-    }
     ```
 
   - **Failure:** A suitable error message will be returned if the token has expired, has been used, or is invalid.
@@ -398,9 +396,11 @@ The Library Management System offers a secure, efficient solution for managing b
 - **Sample Payload:**
 
   ```json
-  {
-    "authorid": 1
-  }
+   {
+    "token": " place your JwtToken Here",
+    "authorid": "4",
+    }
+  
   ```
 
 - **Expected Response:**
@@ -409,12 +409,13 @@ The Library Management System offers a secure, efficient solution for managing b
 
     ```json
     {
+      "Token": "Generated token",
       "status": "success",
       "data": null
     }
     ```
 
-  - **Failure:** If the token has already been used, is invalid, expired, or if the author ID is missing or not found, an appropriate error message will be returned.
+  - **Failure:** If there are no fields to edit, the author ID is missing or not found, the token has already been used, or it is invalid or expired, the relevant error message will be displayed.
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
