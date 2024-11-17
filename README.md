@@ -19,7 +19,7 @@
         <li><a href="#user-endpoints">User Endpoints</a></li>
         <li><a href="#author-endpoints">Author Endpoints</a></li>
         <li><a href="#book-endpoints">Book Endpoints</a></li>
-        <li><a href="#book-author-association-endpoints">Book-Author Association Endpoints</a></li>
+        <li><a href="#book-author-relationship-endpoints">Book-Author Relationship Endpoints</a></li>
         <li><a href="#search-endpoints">Search Endpoints</a></li>
         <li><a href="#catalog-endpoints">Catalog Endpoints</a></li>
       </ul>
@@ -296,6 +296,7 @@ The Library Management System offers a secure, efficient solution for managing b
     ```json
     {
       "status": "success",
+      "Token": "generated token",
       "data": null
     }
     ```
@@ -438,6 +439,7 @@ The Library Management System offers a secure, efficient solution for managing b
     ```json
     {
       "status": "success",
+      "Token": "generated token",
       "data": null
     }
     ```
@@ -457,6 +459,7 @@ The Library Management System offers a secure, efficient solution for managing b
     ```json
     {
       "status": "success",
+      "Token": "generated token",
       "data": [
         {
           "bookid": 1,
@@ -466,9 +469,9 @@ The Library Management System offers a secure, efficient solution for managing b
     }
     ```
 
-  - **Failure:** If the token has already been used, is invalid, or expired, an appropriate error message will be returned.
+  - **Failure:** The relevant error message will be displayed if the token has already been used, is invalid, or has expired.
 
-**c. Update Book** - Updates a book's information in the database.
+**c. Update Book** - updates the database's information on a book.
 
 - **Endpoint:** `/book/update`
 - **Method:** `PUT`
@@ -477,8 +480,10 @@ The Library Management System offers a secure, efficient solution for managing b
 
   ```json
   {
+    "token":" place your JwtToken Here",
     "bookid": 1,
-    "title": "Updated Book Title"
+    "title": "Updated Book Title",
+    "authorid":"4"
   }
   ```
 
@@ -489,13 +494,14 @@ The Library Management System offers a secure, efficient solution for managing b
     ```json
     {
       "status": "success",
+      "token": "generated token",
       "data": null
     }
     ```
 
-  - **Failure:** If the token has already been used, is invalid, expired, or if the book ID is missing or not found, or if there are no fields to update, an appropriate error message will be returned.
+  - **Failure:** A suitable error message will be supplied if the token has already been used, is invalid or expired, the book ID is missing or cannot be located, or there are no fields to change.
 
-**d. Delete Book** - Deletes a book from the database.
+**d. Delete Book** - removing a book from the database..
 
 - **Endpoint:** `/book/delete`
 - **Method:** `DELETE`
@@ -504,7 +510,8 @@ The Library Management System offers a secure, efficient solution for managing b
 
   ```json
   {
-    "bookid": 1
+    "token": "place your JwtToken Here",
+    "bookid": 4
   }
   ```
 
@@ -515,15 +522,16 @@ The Library Management System offers a secure, efficient solution for managing b
     ```json
     {
       "status": "success",
+      "token": "generated token",
       "data": null
     }
     ```
 
-  - **Failure:** If the token has already been used, is invalid, expired, or if the book ID is missing or not found, an appropriate error message will be returned.
+  - **Failure:** A suitable error message will be supplied if the token has already been used, is invalid or expired, or if the book ID cannot be located.
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
-<h3 id="book-author-association-endpoints">4. Book-Author Association Endpoints</h3>
+<h3 id="book-author-relationship-endpoints">4. Book-Author Relationship Endpoints</h3>
 
 **a. Add Book-Author** - Adds a new association between a book and an author.
 
