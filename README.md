@@ -14,7 +14,7 @@
         <li><a href="#installing">Installing</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Implementation</a>
+    <li><a href="#implementation">Implementation</a>
         <ul>
         <li><a href="#user-endpoints">User Endpoints</a></li>
         <li><a href="#author-endpoints">Author Endpoints</a></li>
@@ -134,7 +134,7 @@ The Library Management System offers a secure, efficient solution for managing b
 
 <h3 id="user-endpoints">1. User Endpoints</h3>
 
-**a. User Registration** - Registers a new user with a unique username and a hashed password.
+**a. User Registration** - creates a new user account using a hashed password and a unique username.
 
 - **Endpoint:** `/user/register`
 - **Method:** `POST`
@@ -142,8 +142,8 @@ The Library Management System offers a secure, efficient solution for managing b
 
   ```json
   {
-    "username": "newUser",
-    "password": "securePassword"
+    "username": "type your username ",
+    "password": "type your password"
   }
   ```
 
@@ -164,7 +164,7 @@ The Library Management System offers a secure, efficient solution for managing b
     {
       "status": "fail",
       "data": {
-        "title": "<Error Message Here>"
+        "title": "(Error Message Here)"
       }
     }
     ```
