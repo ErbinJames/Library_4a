@@ -5,7 +5,7 @@
   <summary>Table of Contents</summary>
   <ol>
     <li>
-      <a href="#library-management-system">About The Project</a>
+      <a href="#library-management-system">About The System/Project</a>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
@@ -20,6 +20,8 @@
         <li><a href="#author-endpoints">Author Endpoints</a></li>
         <li><a href="#book-endpoints">Book Endpoints</a></li>
         <li><a href="#book-author-association-endpoints">Book-Author Association Endpoints</a></li>
+        <li><a href="#search-endpoints">Search Endpoints</a></li>
+        <li><a href="#catalog-endpoints">Catalog Endpoints</a></li>
       </ul>
     </li>
     <li><a href="#token-management">Token Management</a></li>
@@ -30,7 +32,7 @@
 
 ## About the Project
 
-The Library Management System provides a secure and efficient way to manage books, authors, users, and book-author relationships. It supports CRUD operations for users (register, authenticate, display, update, delete), books, authors, and book-author associations. Token-based authentication ensures secure access, with validation and usage tracking to restrict operations to authorized users. The book-author relationship table enhances flexibility, linking books to their respective authors. The system aims to facilitate easy and secure management of library data while maintaining a high level of security.
+The Library Management System offers a secure, efficient solution for managing books, authors, users, and their associations, along with robust search and catalog capabilities. It supports full CRUD (Create, Read, Update, Delete) operations for user management—enabling registration, authentication, viewing, updating, and deletion of user profiles—as well as for books, authors, and book-author associations. Users can easily search for and catalog books and authors, ensuring quick access to information. Token-based authentication with validation and usage tracking ensures that only authorized users can perform operations. The book-author relationship table enhances flexibility by linking books to their respective authors. This system is designed to simplify and secure library data management while maintaining strong security standards. 
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
@@ -98,7 +100,7 @@ The Library Management System provides a secure and efficient way to manage book
        PRIMARY KEY (collectionid)
    );
 
-   CREATE TABLE used_tokens (
+   CREATE TABLE tokens (
        token VARCHAR(512) PRIMARY KEY,
        used_at DATETIME NOT NULL
    );
