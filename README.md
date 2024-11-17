@@ -416,16 +416,18 @@ The Library Management System offers a secure, efficient solution for managing b
 
 <h3 id="book-endpoints">3. Book Endpoints</h3>
 
-**a. Add Book** - Adds a new book to the database.
+**a. Register Book** - Register/add a new book to the library.
 
-- **Endpoint:** `/book/add`
+- **Endpoint:** `/book/register`
 - **Method:** `POST`
 - **Headers:** `Authorization: Bearer <insert generated jwtTokenHere from the users/authenticate>`
 - **Sample Payload:**
 
   ```json
   {
+    "token": "place your JwtToken Here",
     "title": "Book Title"
+    "authorid": "4"
   }
   ```
 
@@ -440,9 +442,9 @@ The Library Management System offers a secure, efficient solution for managing b
     }
     ```
 
-  - **Failure:** If the token is invalid, expired, already used, or if the title is empty or the book already exists, an appropriate error message will be returned.
+  - **Failure:** An appropriate error message will be returned if the token is invalid, expired, already used, the title is empty, or the book already exists.
 
-**b. Display Books** - Displays a list of books from the database.
+**b. Display Books** - presents a database list of books.
 
 - **Endpoint:** `/book/display`
 - **Method:** `GET`
