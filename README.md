@@ -14,7 +14,7 @@
         <li><a href="#installing">Installing</a></li>
       </ul>
     </li>
-    <li><a href="#usage">Usage</a>
+    <li><a href="#usage">Implementation</a>
         <ul>
         <li><a href="#user-endpoints">User Endpoints</a></li>
         <li><a href="#author-endpoints">Author Endpoints</a></li>
@@ -130,7 +130,7 @@ The Library Management System offers a secure, efficient solution for managing b
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
-## Usage
+## Implementation
 
 <h3 id="user-endpoints">1. User Endpoints</h3>
 
