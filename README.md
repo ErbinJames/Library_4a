@@ -306,15 +306,16 @@ The Library Management System offers a secure, efficient solution for managing b
 
 <h3 id="author-endpoints">2. Author Endpoints</h3>
 
-**a. Add Author** - Adds a new author to the database.
+**a. Register Author** - register/add a new author to the database.
 
-- **Endpoint:** `/author/add`
+- **Endpoint:** `/author/register`
 - **Method:** `POST`
 - **Headers:** `Authorization: Bearer <insert generated jwtTokenHere from the users/authenticate>`
 - **Sample Payload:**
 
   ```json
   {
+    "Token":place jwtToken Here",
     "name": "Author Name"
   }
   ```
