@@ -533,94 +533,17 @@ The Library Management System offers a secure, efficient solution for managing b
 
 <h3 id="book-author-relationship-endpoints">4. Book-Author Relationship Endpoints</h3>
 
-**a. Add Book-Author** - Adds a new association between a book and an author.
+**a. Register Book-Author** - creates a new connection between a book and its author.
 
-- **Endpoint:** `/books_author/add`
+- **Endpoint:** `/book_author/register`
 - **Method:** `POST`
 - **Headers:** `Authorization: Bearer <insert generated jwtTokenHere from the users/authenticate>`
 - **Sample Payload:**
 
   ```json
   {
-    "bookid": 1,
-    "authorid": 2
-  }
-  ```
-
-- **Expected Response:**
-
-  - **Success:**
-
-    ```json
-    {
-      "status": "success",
-      "data": null
-    }
-    ```
-
-  - **Failure:** If the token is already used, invalid/expired, or if required fields (book ID or author ID) are missing, the response will indicate the specific error.
-
-**b. Display All Book-Author** - Displays all book-author associations in the database with their corresponding IDs.
-
-- **Endpoint:** `/books_author/display`
-- **Method:** `GET`
-- **Headers:** `Authorization: Bearer <insert generated jwtTokenHere from the users/authenticate>`
-
-- **Expected Response:**
-
-  - **Success:**
-
-    ```json
-    {
-      "status": "success",
-      "data": [
-        {
-          "collectionid": 1,
-          "bookid": 1,
-          "authorid": 2
-        }
-      ]
-    }
-    ```
-
-  - **Failure:** If the token is already used, invalid/expired, or any database issue occurs, the response will indicate the specific error.
-
-**c. Display Book-Author with Names** - Displays book-author associations with the book and author names instead of IDs.
-
-- **Endpoint:** `/books_author/display_with_names`
-- **Method:** `GET`
-- **Headers:** `Authorization: Bearer <insert generated jwtTokenHere from the users/authenticate>`
-
-- **Expected Response:**
-
-  - **Success:**
-
-    ```json
-    {
-      "status": "success",
-      "data": [
-        {
-          "collectionid": 1,
-          "book_name": "Book Title 1",
-          "author_name": "Author Name 1"
-        }
-      ]
-    }
-    ```
-
-  - **Failure:** If the token is already used, invalid/expired, or any database issue occurs, the response will indicate the specific error.
-
-**d. Update Book-Author** - Updates an existing book-author association by changing the book and/or author ID.
-
-- **Endpoint:** `/books_author/update`
-- **Method:** `PUT`
-- **Headers:** `Authorization: Bearer <insert generated jwtTokenHere from the users/authenticate>`
-- **Sample Payload:**
-
-  ```json
-  {
-    "collectionid": 1,
-    "bookid": 2,
+    "token": " place your JwtToken Here",
+    "bookid": 5,
     "authorid": 3
   }
   ```
@@ -632,22 +555,52 @@ The Library Management System offers a secure, efficient solution for managing b
     ```json
     {
       "status": "success",
+      "token" : "generated token",
       "data": null
     }
     ```
 
-  - **Failure:** If the token is already used, invalid/expired, if the collection ID is missing or not found, or no fields are provided to update, the response will indicate the specific error.
+  - **Failure:** The response will specify the precise error if the token has already been used, is invalid or expired, or if necessary fields (book ID or author ID) are absent.
 
-**e. Delete Book-Author** - Deletes a specific book-author association.
+**b. Display All Book-Author** - shows every book-author relationship in the database along with the ID that corresponds to it.
 
-- **Endpoint:** `/books_author/delete`
-- **Method:** `DELETE`
+- **Endpoint:** `/book_author/display`
+- **Method:** `GET`
+- **Headers:** `Authorization: Bearer <insert generated jwtTokenHere from the users/authenticate>`
+
+- **Expected Response:**
+
+  - **Success:**
+
+    ```json
+    {
+      "status": "success",
+      "token": "generated token",
+      "data": [
+        {
+          "collectionid": 4,
+          "bookid": 3,
+          "authorid": 3
+        }
+      ]
+    }
+    ```
+
+  - **Failure:** The response will specify the precise error if the token has already been used, is invalid or expired, or there is a database problem.
+
+**c. Update Book-Author** - modifies the book and/or author ID to update an existing book-author association.
+
+- **Endpoint:** `/book_author/update`
+- **Method:** `PUT`
 - **Headers:** `Authorization: Bearer <insert generated jwtTokenHere from the users/authenticate>`
 - **Sample Payload:**
 
   ```json
   {
-    "collectionid": 1
+    "token": "place your JwtToken Here",
+    "collectionid": 4
+    "bookid": 3,
+    "authorid": 5
   }
   ```
 
@@ -658,11 +611,42 @@ The Library Management System offers a secure, efficient solution for managing b
     ```json
     {
       "status": "success",
+      "token": "generated token",
       "data": null
     }
     ```
 
-  - **Failure:** If the token is already used, invalid/expired, if the collection ID is missing or no association exists for the given ID, the response will indicate the specific error.
+  - **Failure:** The answer will specify the precise error if the token has already been used, is invalid or expired, the collection ID is missing or not discovered, or no fields are met to update.
+
+**d. Delete Book-Author** - removes a specific book-author relationship.
+
+- **Endpoint:** `/book_author/delete`
+- **Method:** `DELETE`
+- **Headers:** `Authorization: Bearer <insert generated jwtTokenHere from the users/authenticate>`
+- **Sample Payload:**
+
+  ```json
+  {
+    "token": "place your JwtToken Here",
+    "collectionid": 3
+  }
+  ```
+
+- **Expected Response:**
+
+  - **Success:**
+
+    ```json
+    {
+      "status": "success",
+      "token": "generated token",
+      "data": null
+    }
+    ```
+
+  - **Failure:** The response will specify the precise error if the token has already been used, is invalid or expired, the collection ID is missing, or there is no association for the provided ID.
+
+<h3 id="search-endpoints">3. Search Endpoints</h3>
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
