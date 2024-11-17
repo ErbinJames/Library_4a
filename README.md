@@ -41,12 +41,12 @@ The Library Management System offers a secure, efficient solution for managing b
 ### Prerequisites
 
 - XAMPP
-- SQLyog (optional, can use phpMyAdmin)
-- Composer
+- SQLyog (or phpMyAdmin)
+- JWT PHP Library
 - Node.js
+- Composer
 - PHP (version 7.2 or higher)
 - Slim Framework
-- JWT PHP Library
 - ThunderClient
 
 ### Installing
@@ -108,7 +108,7 @@ The Library Management System offers a secure, efficient solution for managing b
 
 4. **Configure Database Connection**
 
-   - Edit the connection details in index.php as follows:
+   - Modify the connection details in the index.php file as specified :
 
    ```php
    <?php
@@ -119,14 +119,14 @@ The Library Management System offers a secure, efficient solution for managing b
    ?>
    ```
 
-   Replace these values with your actual database settings to connect to the library database.
+   Substitute these values with your actual database settings to establish a connection to the library database.
 
 5. **Start XAMPP Server**
 
-   - Ensure that both Apache and MySQL are running in the XAMPP control panel.
+   - Make sure that both Apache and MySQL are active/running in the XAMPP control panel.
 
 6. **Testing the Application**
-   - You can now use API testing tools like Postman or Thunder Client to test the CRUD operations and authentication endpoints.
+   - You can now test the CRUD operations and authentication endpoints using API testing tools such as Postman or Thunder Client(default testing tool i used).
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
