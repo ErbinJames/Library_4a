@@ -346,12 +346,9 @@ The Library Management System offers a secure, efficient solution for managing b
     ```json
     {
       "status": "success",
-      "data": [
-        {
-          "authorid": 4,
-          "name": "Author Name",
-          "token": "generated token"
-        }
+      "token": "generated token",
+      "data": null
+    }
     ```
 
   - **Failure:** A suitable error message will be returned if the token has expired, has been used, or is invalid.
@@ -380,8 +377,8 @@ The Library Management System offers a secure, efficient solution for managing b
 
     ```json
     {
-      "token": "Generated token",
       "status": "success",
+      "token": "generated token",
       "data": null 
     }
     ```
@@ -409,8 +406,8 @@ The Library Management System offers a secure, efficient solution for managing b
 
     ```json
     {
-      "Token": "Generated token",
       "status": "success",
+      "Token": "Generated token",
       "data": null
     }
     ```
