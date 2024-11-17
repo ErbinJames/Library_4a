@@ -327,6 +327,7 @@ The Library Management System offers a secure, efficient solution for managing b
     ```json
     {
       "status": "success",
+      "token": "generated token",
       "data": null
     }
     ```
@@ -366,9 +367,6 @@ The Library Management System offers a secure, efficient solution for managing b
   "authorid": "4",
   "name": "Author Name"
     }
-   ]
-  }
-  
   ```
 
 - **Expected Response:**
