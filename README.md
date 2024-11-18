@@ -676,7 +676,6 @@ The Library Management System offers a secure, efficient solution for managing b
       "author": "Jane Smith",
       "year": 2019
     }
-    }
     ```
 
   - **Failure:** If the search query does not match any records, the API will return an empty result set with an error status.
@@ -808,3 +807,14 @@ function markTokenAsUsed($token) {
 This project is developed as part of a midterm school requirement for ITPC 115. It is aimed at demonstrating knowledge and skills in building secure API endpoints and token management.
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
+
+## Contact Information
+
+If you need assistance or have any questions, feel free to reach out to me. Below are my contact details:
+
+- **Name:** Erbin James Derek A. Orodio
+- **University:** Don Mariano Marcos Memorial State University (Mid-La Union Campus)
+- **Email:** eorodio04922@student.dmmmsu.edu.ph
+- **Phone:** 09064785854
+<p align="right">(<a href="#library-management-system">back to top</a>)</p>
+
