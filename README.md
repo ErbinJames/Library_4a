@@ -647,6 +647,72 @@ The Library Management System offers a secure, efficient solution for managing b
 
 <h3 id="search-and-catalog-endpoints">5. Search and Catalog Endpoints</h3>
 
+**a. Search** -  allows users to quickly locate books and authors by keywords or specific criteria.
+
+- **Endpoint:** `/publio/searchq=`
+- **Method:** `GET`
+- **Query Parameter**:
+- `q` (required): The keyword to search for. For example, to search for items related to "Nick," the URL would be:  
+    ```
+    http://127.0.0.1/library/public/search?q=Nick
+    ```
+    
+- **Expected Response:**
+
+  - **Success:**
+
+    ```json
+    {
+      "results": [
+    {
+      "id": 1,
+      "title": "The Great Nick",
+      "author": "John Doe",
+      "year": 2021
+    },
+    {
+      "id": 2,
+      "title": "Nick of Time",
+      "author": "Jane Smith",
+      "year": 2019
+    }
+    }
+    ```
+
+  - **Failure:** If the search query does not match any records, the API will return an empty result set with an error status.
+
+**b. Catalog** -  allows users to view all available books and authors in the library's catalog.
+
+- **Endpoint:** `/public/catalog`
+- **Method:** `GET`
+- **Headers**:
+  - `Accept: */*`
+  - `User-Agent: Thunder Client (https://www.thunderclient.com)`
+    
+- **Expected Response:**
+
+  - **Success:**
+
+    ```json
+    {
+      "catalog": [
+    {
+      "id": 1,
+      "title": "Book Title 1",
+      "author": "Author Name 1",
+      "year": 2020
+    },
+    {
+      "id": 2,
+      "title": "Book Title 2",
+      "author": "Author Name 2",
+      "year": 2021
+       }
+      ]
+    }
+    ```
+
+  - **Failure:** If an error occurs while retrieving the catalog, the API will return an error response.
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
