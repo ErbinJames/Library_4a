@@ -24,7 +24,7 @@
       </ul>
     </li>
     <li><a href="#token-management">Token Management</a></li>
-    <li><a href="#FAQs-and-tips">FAQs & Tips</a></li>
+    <li><a href="#troubleshooting-faqs">Troubleshooting/FAQ</a></li>
     <li><a href="#project-information">Project Information</a></li>
     <li><a href="#contact-information">Contact Information</a></li>
   </ol>
