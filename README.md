@@ -719,7 +719,7 @@ The Library Management System offers a secure, efficient solution for managing b
 ## Token Management
 
 **Check if Token is Used**  
-The `isTokenUsed` function checks the `used_tokens` table to see if the token has been recorded as used.
+The `isTokenUsed` function determines whether the token has been noted as used by looking through the `tokens` table.
 
 ```php
 function isTokenUsed($token, $conn)
@@ -732,31 +732,45 @@ function isTokenUsed($token, $conn)
 ```
 
 **Validate Token**  
-The `validateToken` function decodes and validates the token using the secret key, returning `false` if the token is invalid or expired.
+Using the secret key, the `validateToken` function decodes and verifies the token, returning `false` if it is invalid or expired.
 
 ```php
-function validateToken($token, $key)
-{
+function markTokenAsUsed($token) {
     try {
-        return JWT::decode($token, new Key($key, 'HS256'));
-    } catch (Exception $e) {
-        return false;
+        // Establish database connection
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // SQL to update token status and timestamp
+        $sql = "UPDATE tokens SET status = 'revoked', used_at = NOW() WHERE token = :token";
+        $stmt = $conn->prepare($sql);
+        $stmt->bindParam(':token', $token);
+        $stmt->execute();
+    } catch (PDOException $e) {
+        // Error handling (optional)
     }
 }
 ```
 
 **Mark Token as Used**  
-The `markTokenAsUsed` function inserts the token into the `used_tokens` table, marking it as used to prevent reuse.
+In order to prevent reuse, the `markTokenAsUsed` function marks the token as used by inserting it into the `used_tokens` table.
 
 ```php
-function markTokenAsUsed($conn, $token)
-{
+function markTokenAsUsed($token) {
     try {
-        $stmt = $conn->prepare("INSERT INTO used_tokens (token) VALUES (:token)");
+        // Connect to the database
+        $conn = new PDO("mysql:host=$servername;dbname=$dbname", $username, $password);
+        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        // Prepare SQL query to update token status and set used_at timestamp
+        $sql = "UPDATE tokens SET status = 'revoked', used_at = NOW() WHERE token = :token";
+        $stmt = $conn->prepare($sql);
+
+        // Bind token parameter and execute
         $stmt->bindParam(':token', $token);
         $stmt->execute();
     } catch (PDOException $e) {
-        throw new Exception("Error marking token as used: " . $e->getMessage());
+        // Handle errors (optional logging can be added here)
     }
 }
 ```
@@ -765,29 +779,27 @@ function markTokenAsUsed($conn, $token)
 
 ## Troubleshooting / FAQ
 
-- **Q: How do I regenerate an expired token?**  
-  **A:** To regenerate an expired token, you need to log in again by providing valid credentials. The new token will be issued upon successful authentication.
+- **Q: How can I regenerate an expired token?**  
+  **A:** Simply log in again to receive a new token.
 
-- **Q: Why am I getting a "Token is invalid" error?**  
-  **A:** This error occurs if the token is either malformed or has expired. Ensure the token is correctly formatted and that it is not expired. If necessary, regenerate a new token.
+- **Q: What does a "Token is invalid" error mean?**  
+  **A:** This error usually indicates that the token is either expired or improperly formatted. Ensure the token is correct and try generating a new one if needed.
 
-- **Q: How do I check if my token has already been used?**  
-  **A:** You can check if your token has been used by calling the API endpoint that checks the token's status, or by inspecting the `used_tokens` table in the database.
+- **Q: How can I verify if my token has been used?**  
+  **A:** You can check the token status by using the API endpoint or reviewing the `tokens` table in the database.
 
-- **Q: What should I do if I get a "Token expired" error when calling the API?**  
-  **A:** This error means the token has expired. Regenerate the token by logging in again, and ensure you are using the new token for your API requests.
+- **Q: What should I do if I encounter a "Token expired" error?**  
+  **A:** Regenerate the token by logging in again and use the newly issued token for your requests.
 
-- **Q: Can I use the same token multiple times?**  
-  **A:** No, the token can only be used once. After it is used, it will be marked as "used" in the database, and any subsequent attempts to reuse it will result in a "Token already used" error.
+- **Q: Can I reuse my token multiple times?**  
+  **A:** No, tokens can only be used once. After being used, they will be marked as "used."
 
-- **Q: Where will I put the token if I'm using Thunder Client?**  
+- **Q: How do I include the token in Thunder Client?**  
   **A:**
-  - Open Thunder Client and create a new request.
-  - Go to the "Headers" tab.
-  - Add a new key called `Authorization`.
-  - Set the value to `Bearer <your_token>`, where `<your_token>` is the JWT token you want to use.  
-    For example:  
-    `Authorization: Bearer your_token_here`
+  1. Create a new request.
+  2. Navigate to the "Headers" tab.
+  3. Add `Authorization` as the key.
+  4. Set the value to `Bearer <your_token>` (replace `<your_token>` with the token you're using).
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
