@@ -796,10 +796,10 @@ function markTokenAsUsed($token) {
 
 - **Q: How do I include the token in Thunder Client?**  
   **A:**
-  1. Create a new request.
-  2. Navigate to the "Headers" tab.
-  3. Add `Authorization` as the key.
-  4. Set the value to `Bearer <your_token>` (replace `<your_token>` with the token you're using).
+  - 1. Create a new request.
+  - 2. Navigate to the "Headers" tab.
+  - 3. Add `Authorization` as the key.
+  - 4. Set the value to `Bearer <your_token>` (replace `<your_token>` with the token you're using).
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
