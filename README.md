@@ -20,8 +20,7 @@
         <li><a href="#author-endpoints">Author Endpoints</a></li>
         <li><a href="#book-endpoints">Book Endpoints</a></li>
         <li><a href="#book-author-relationship-endpoints">Book-Author Relationship Endpoints</a></li>
-        <li><a href="#search-endpoints">Search Endpoints</a></li>
-        <li><a href="#catalog-endpoints">Catalog Endpoints</a></li>
+        <li><a href="#search-and-catalog-endpoints">Search and Catalog Endpoints</a></li>
       </ul>
     </li>
     <li><a href="#token-management">Token Management</a></li>
@@ -646,7 +645,7 @@ The Library Management System offers a secure, efficient solution for managing b
 
   - **Failure:** The response will specify the precise error if the token has already been used, is invalid or expired, the collection ID is missing, or there is no association for the provided ID.
 
-<h3 id="search-endpoints">5. Search Endpoints</h3>
+<h3 id="search-and-catalog-endpoints">5. Search and Catalog Endpoints</h3>
 
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
