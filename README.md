@@ -24,7 +24,7 @@
       </ul>
     </li>
     <li><a href="#token-management">Token Management</a></li>
-    <li><a href="#troubleshooting--faq">FAQ</a></li>
+    <li><a href="#FAQs-and-tips">FAQs & Tips</a></li>
     <li><a href="#project-information">Project Information</a></li>
     <li><a href="#contact-information">Contact Information</a></li>
   </ol>
@@ -777,7 +777,7 @@ function markTokenAsUsed($token) {
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
-## Troubleshooting / FAQ
+## FAQs & Tips
 
 - **Q: How can I regenerate an expired token?**  
   **A:** Simply log in again to receive a new token.
