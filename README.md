@@ -777,7 +777,7 @@ function markTokenAsUsed($token) {
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
-## FAQs & Tips
+## Troubleshooting/FAQ
 
 - **Q: How can I regenerate an expired token?**  
   **A:** Simply log in again to receive a new token.
