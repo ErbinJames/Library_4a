@@ -24,7 +24,6 @@
       </ul>
     </li>
     <li><a href="#token-management">Token Management</a></li>
-    <li><a href="#troubleshooting--faq">Troubleshooting / FAQ</a></li>
     <li><a href="#project-information">Project Information</a></li>
     <li><a href="#contact-information">Contact Information</a></li>
   </ol>
@@ -774,32 +773,6 @@ function markTokenAsUsed($token) {
     }
 }
 ```
-
-<p align="right">(<a href="#library-management-system">back to top</a>)</p>
-
-## Troubleshooting / FAQ
-
-- **Q: How can I regenerate an expired token?**  
-  **A:** Simply log in again to receive a new token.
-
-- **Q: What does a "Token is invalid" error mean?**  
-  **A:** This error usually indicates that the token is either expired or improperly formatted. Ensure the token is correct and try generating a new one if needed.
-
-- **Q: How can I verify if my token has been used?**  
-  **A:** You can check the token status by using the API endpoint or reviewing the `tokens` table in the database.
-
-- **Q: What should I do if I encounter a "Token expired" error?**  
-  **A:** Regenerate the token by logging in again and use the newly issued token for your requests.
-
-- **Q: Can I reuse my token multiple times?**  
-  **A:** No, tokens can only be used once. After being used, they will be marked as "used."
-
-- **Q: How do I include the token in Thunder Client?**  
-  **A:**
-  - 1. Create a new request.
-  - 2. Navigate to the "Headers" tab.
-  - 3. Add `Authorization` as the key.
-  - 4. Set the value to `Bearer <your_token>` (replace `<your_token>` with the token you're using).
 
 <p align="right">(<a href="#library-management-system">back to top</a>)</p>
 
